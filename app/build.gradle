@@ -1,0 +1,20 @@
+plugins {
+    id "org.springframework.boot" version "2.2.0.RC1"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+}
+
+repositories {
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    implementation(project(":usecase"))
+    implementation("org.springframework.boot:spring-boot-starter")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
